@@ -6,8 +6,15 @@
         xmlns:local="clr-namespace:InchSimulator"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        WindowStyle="None" WindowState="Maximized" Topmost="True">
+        WindowStyle="None" WindowState="Maximized" Topmost="True" Background="Gray">
     <Grid>
-
+        <Path Grid.Row="2" Grid.Column="0" Stroke="LightGreen" StrokeThickness="2" Stretch="Fill">
+            <Path.Data>
+                <LineGeometry StartPoint="0,0" EndPoint="1,1" />
+            </Path.Data>
+        </Path>
+        <TextBlock Loaded="TextBlock_Loaded" Margin="0,10,10,404" TextWrapping="Wrap" FontSize="24" Foreground="LightGreen" HorizontalAlignment="Right" Width="190"/>
+        <TextBox Margin="0,51,10,0" TextChanged="TextBox_TextChanged" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" FontSize="24" HorizontalAlignment="Right" Width="190"/>
+        <TextBox HorizontalAlignment="Right" Margin="0,94,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="38" FontSize="24"/>
     </Grid>
 </Window>

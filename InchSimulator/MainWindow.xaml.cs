@@ -24,5 +24,20 @@ namespace InchSimulator
         {
             InitializeComponent();
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBlock_Loaded(object sender, RoutedEventArgs e)
+        {
+            double w = SystemParameters.PrimaryScreenWidth;
+            double h = SystemParameters.PrimaryScreenHeight;
+
+            var textBlock = sender as TextBlock;
+
+            textBlock.Text = $"{(int)w}x{(int)h}";
+        }
     }
 }
