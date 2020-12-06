@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:InchSimulator"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        WindowStyle="None" WindowState="Maximized" Topmost="True" Background="Gray">
+        WindowStyle="None" WindowState="Maximized" Topmost="True" Background="Gray"
+        SizeChanged="Window_SizeChanged">
     <Grid>
         <Border x:Name="TargetBorder1" BorderBrush="Red" BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Border>
         <Border x:Name="TargetBorder2" BorderBrush="Orange" BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Border>
@@ -15,7 +16,7 @@
                 <LineGeometry StartPoint="0,0" EndPoint="1,1" />
             </Path.Data>
         </Path>
-        <TextBlock Loaded="TextBlock_Loaded" Margin="0,10,10,404" TextWrapping="Wrap" FontSize="24" Foreground="LightGreen" HorizontalAlignment="Right" Width="190"/>
+        <TextBlock Name="ScreenSize" Loaded="TextBlock_Loaded" Margin="0,10,10,404" TextWrapping="Wrap" FontSize="24" Foreground="LightGreen" HorizontalAlignment="Right" Width="190"/>
         <TextBox Name="BaseInch" PreviewTextInput="BaseInch_PreviewTextInput"  Margin="0,51,10,0" TextChanged="TextBox_TextChanged" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" FontSize="24" HorizontalAlignment="Right" Width="190"/>
         <TextBox Name="TargetInch1" PreviewTextInput="TargetInch1_PreviewTextInput" TextChanged="TargetInch1TextBox_TextChanged" HorizontalAlignment="Right" Margin="0,94,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="38" FontSize="24"/>
         <TextBox Name="TargetInch2" PreviewTextInput="TargetInch2_PreviewTextInput" TextChanged="TargetInch2TextBox_TextChanged" HorizontalAlignment="Right" Margin="0,137,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="38" FontSize="24"/>

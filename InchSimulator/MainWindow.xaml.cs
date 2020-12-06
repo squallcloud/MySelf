@@ -33,6 +33,8 @@ namespace InchSimulator
 
             if (double.TryParse(textBox.Text, out double baseInch)) {
                 m_BaseInch = baseInch;
+
+                resizeAllRect();
             }
         }
 
@@ -42,15 +44,7 @@ namespace InchSimulator
 
             if (double.TryParse(textBox.Text, out double targetInch))
             {
-                double ratio = targetInch / m_BaseInch;
-
-                double w = SystemParameters.PrimaryScreenWidth;
-                double h = SystemParameters.PrimaryScreenHeight;
-
-                //rectGeom.Rect = new Rect(0, 0, ratio, ratio);
-
-                TargetBorder1.Width = w * ratio;
-                TargetBorder1.Height = h * ratio;
+                resizeRect(TargetBorder1, targetInch);
             }
         }
 
@@ -60,23 +54,32 @@ namespace InchSimulator
 
             if (double.TryParse(textBox.Text, out double targetInch))
             {
-                double ratio = targetInch / m_BaseInch;
-
-                double w = SystemParameters.PrimaryScreenWidth;
-                double h = SystemParameters.PrimaryScreenHeight;
-
-                //rectGeom.Rect = new Rect(0, 0, ratio, ratio);
-
-
-                TargetBorder2.Width = w * ratio;
-                TargetBorder2.Height = h * ratio;
+                resizeRect(TargetBorder2, targetInch);
             }
+        }
+
+        void resizeRect(Border border, double targetInch)
+        {
+            if (m_BaseInch == 0)
+            {
+                return;
+            }
+
+            double ratio = targetInch / m_BaseInch;
+
+            var screenSize = this.RenderSize;
+            double w = screenSize.Width;
+            double h = screenSize.Height;
+
+            border.Width = w * ratio;
+            border.Height = h * ratio;
         }
 
         private void TextBlock_Loaded(object sender, RoutedEventArgs e)
         {
-            double w = SystemParameters.PrimaryScreenWidth;
-            double h = SystemParameters.PrimaryScreenHeight;
+            var screenSize = this.RenderSize;
+            double w = screenSize.Width;
+            double h = screenSize.Height;
 
             var textBlock = sender as TextBlock;
 
@@ -104,6 +107,36 @@ namespace InchSimulator
             if (!(int.TryParse(e.Text, out int result) || e.Text == "."))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            resizeAllRect();
+        }
+
+        void resizeAllRect()
+        {
+            {
+                var screenSize = this.RenderSize;
+                double w = screenSize.Width;
+                double h = screenSize.Height;
+
+                ScreenSize.Text = $"{(int)w}x{(int)h}";
+            }
+
+            {
+                if (double.TryParse(TargetInch1.Text, out double targetInch))
+                {
+                    resizeRect(TargetBorder1, targetInch);
+                }
+            }
+
+            {
+                if (double.TryParse(TargetInch2.Text, out double targetInch))
+                {
+                    resizeRect(TargetBorder2, targetInch);
+                }
             }
         }
     }
