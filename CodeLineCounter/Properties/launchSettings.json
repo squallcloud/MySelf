@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CodeLineCounter": {
+      "commandName": "Project",
+      "commandLineArgs": "$(ProjectDir)"
+    }
+  }
+}
