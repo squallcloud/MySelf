@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeLineCounter", "CodeLine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFiltering", "AutoFiltering\AutoFiltering.csproj", "{E18BCE95-FE4B-4CEE-B088-7D1DA88CFF3C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomBuild", "CustomBuild\CustomBuild.csproj", "{D0079F82-E815-4726-B171-D0B6783EC607}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{E18BCE95-FE4B-4CEE-B088-7D1DA88CFF3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E18BCE95-FE4B-4CEE-B088-7D1DA88CFF3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E18BCE95-FE4B-4CEE-B088-7D1DA88CFF3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0079F82-E815-4726-B171-D0B6783EC607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0079F82-E815-4726-B171-D0B6783EC607}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0079F82-E815-4726-B171-D0B6783EC607}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0079F82-E815-4726-B171-D0B6783EC607}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
