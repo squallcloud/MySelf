@@ -1,10 +1,5 @@
-﻿using Microsoft.Build.BuildEngine;
-using Microsoft.Build.Evaluation;
-using System;
+﻿using Microsoft.Build.Evaluation;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CustomBuild
 {
