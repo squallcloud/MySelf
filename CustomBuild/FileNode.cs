@@ -14,6 +14,11 @@ namespace CustomBuild
             set;
         } = "";
 
+        public string Name {
+            get;
+            set;
+        } = "";
+
         public ProjectItem Item {
             get;
             set;
@@ -26,6 +31,12 @@ namespace CustomBuild
 
         public FileNode(ProjectItem in_item) {
             Item = in_item;
+            Path = in_item.EvaluatedInclude;
+            Name = System.IO.Path.GetFileName(in_item.EvaluatedInclude);
+        }
+
+        public FileNode() {
+            //
         }
     }
 }

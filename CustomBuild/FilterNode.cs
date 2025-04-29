@@ -10,12 +10,12 @@ namespace CustomBuild
 {
     class FilterNode
     {
-        public string NodeType {
+        public string Path {
             get;
             set;
         } = "";
 
-        public string Path {
+        public string Name {
             get;
             set;
         } = "";
@@ -30,13 +30,24 @@ namespace CustomBuild
             set;
         } = null;
 
-        public List<FilterNode> Children {
+        public List<FilterNode> Filters {
             get;
             private set;
         } = new List<FilterNode>();
 
+        public List<FileNode> Files {
+            get;
+            private set;
+        } = new List<FileNode>();
+
         public FilterNode(ProjectItem in_item) {
-            NodeType = in_item.ItemType;
+            Item = in_item;
+            Path = in_item.EvaluatedInclude;
+            Name = System.IO.Path.GetFileName(in_item.EvaluatedInclude);
+        }
+
+        public FilterNode() {
+            //
         }
     }
 }
