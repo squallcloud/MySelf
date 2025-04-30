@@ -1,8 +1,8 @@
 ﻿using Microsoft.Build.Evaluation;
 
-namespace AutoFilterginCui
+namespace AutoFilteringLib
 {
-    class FileNode
+    public class FileNode
     {
         public string Path {
             get;

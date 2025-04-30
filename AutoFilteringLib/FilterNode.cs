@@ -1,9 +1,9 @@
 ﻿using Microsoft.Build.Evaluation;
 using System.Collections.Generic;
 
-namespace AutoFilterginCui
+namespace AutoFilteringLib
 {
-    class FilterNode
+    public class FilterNode
     {
         public string Path {
             get;
