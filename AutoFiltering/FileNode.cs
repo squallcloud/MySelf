@@ -1,9 +1,8 @@
 ﻿using Microsoft.Build.Evaluation;
-using System.Collections.Generic;
 
-namespace AutoFilteringLib
+namespace AutoFiltering
 {
-    public class FilterNode
+    public class FileNode
     {
         public string Path {
             get;
@@ -25,23 +24,13 @@ namespace AutoFilteringLib
             set;
         } = null;
 
-        public List<FilterNode> Filters {
-            get;
-            private set;
-        } = new List<FilterNode>();
-
-        public List<FileNode> Files {
-            get;
-            private set;
-        } = new List<FileNode>();
-
-        public FilterNode(ProjectItem in_item) {
+        public FileNode(ProjectItem in_item) {
             Item = in_item;
             Path = in_item.EvaluatedInclude;
             Name = System.IO.Path.GetFileName(in_item.EvaluatedInclude);
         }
 
-        public FilterNode() {
+        public FileNode() {
             //
         }
     }

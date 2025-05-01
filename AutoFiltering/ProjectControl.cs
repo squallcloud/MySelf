@@ -4,7 +4,7 @@ using System.Collections;
 using System.IO;
 using System.Linq;
 
-namespace AutoFilteringLib
+namespace AutoFiltering
 {
     public class ProjectControl : IDisposable
     {
