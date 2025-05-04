@@ -1,8 +1,12 @@
 ﻿using Microsoft.Build.Evaluation;
+using System;
+using System.Collections;
+using System.IO;
+using System.Linq;
 
-namespace AutoFilterginCui
+namespace AutoFiltering
 {
-    class ProjectControl
+    public class ProjectControl : IDisposable
     {
         public Project TargetProject {
             get;
@@ -14,8 +18,23 @@ namespace AutoFilterginCui
             private set;
         } = new FilterNode();
 
+        public ProjectControl(string in_targetProjectPath) {
+            TargetProject= new Project(in_targetProjectPath);
+        }
+
         public ProjectControl(Project in_targetProject) {
             TargetProject = in_targetProject;
+        }
+
+        public void Dispose() {
+            RootFilter = null;
+            if (TargetProject != null) {
+                var globalPrjCollection = ProjectCollection.GlobalProjectCollection;
+                if (globalPrjCollection.LoadedProjects.Contains(TargetProject)) {
+                    globalPrjCollection.UnloadProject(TargetProject);
+                }
+                TargetProject = null;
+            }
         }
 
         public void Execute() {

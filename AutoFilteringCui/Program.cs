@@ -1,4 +1,4 @@
-﻿using AutoFilterginCui;
+﻿using AutoFiltering;
 using Microsoft.Build.Evaluation;
 
 string vcxprjPath = args[0];

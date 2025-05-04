@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
-using System.Diagnostics;
-using System.Globalization;
-using System.Threading;
-using System.Threading.Tasks;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.VCProjectEngine;
 using Task = System.Threading.Tasks.Task;
 
@@ -89,15 +84,30 @@ namespace AutoFiltering
             ThreadHelper.ThrowIfNotOnUIThread();
 
             if (Package.GetGlobalService(typeof(DTE)) is DTE dte) {
+
+                var prjList = new List<string>();
+
                 foreach (SelectedItem selItem in dte.SelectedItems) {
-                    if (selItem.Project == null) {
+                    var prj = selItem.Project;
+                    if (prj == null || prj.Object == null) {
                         continue;
                     }
-                    if (selItem.Project.Object is VCProject vcprj) {
-                        var vcprjCtrl = new VcprojControl(vcprj);
-                        vcprjCtrl.ExecuteFiltering();
+                    var vcprj = prj.Object as VCProject;
+                    var fullPath = vcprj.ProjectFile;
+                    prjList.Add(fullPath);
+                }
+
+                foreach (var prjPath in prjList) {
+                    var prjFilterPath = prjPath + ".filters";
+                    if (System.IO.File.Exists(prjFilterPath)) {
+                        using (var prjCtrl = new ProjectControl(prjFilterPath)) {
+                            prjCtrl.Execute();
+                        }
                     }
                 }
+
+                dte.ExecuteCommand("Project.UnloadProject");
+                dte.ExecuteCommand("Project.ReloadProject");
             }
         }
     }
