@@ -77,9 +77,9 @@
     <Content Include="Resources\AutoFilteringCommand.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AutoFiltering\AutoFiltering.csproj">
-      <Project>{fbbcdfe8-e2b2-c981-3588-884daf524e05}</Project>
-      <Name>AutoFiltering</Name>
+    <ProjectReference Include="..\AutoFilteringLib\AutoFilteringLib.csproj">
+      <Project>{35c26003-8d9a-4396-e495-3c0e399874d6}</Project>
+      <Name>AutoFilteringLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
