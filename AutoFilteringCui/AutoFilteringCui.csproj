@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AutoFiltering\AutoFiltering.csproj" />
+    <ProjectReference Include="..\AutoFilteringLib\AutoFilteringLib.csproj" />
   </ItemGroup>
 
 </Project>
