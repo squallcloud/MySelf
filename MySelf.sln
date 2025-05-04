@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFilteringVsix", "AutoFi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFilteringLib", "AutoFilteringLib\AutoFilteringLib.csproj", "{35C26003-8D9A-4396-E495-3C0E399874D6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutoFiltering", "AutoFiltering", "{DDB4EF12-CC4E-5E88-E6FC-71A802F4DE97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{55EED55B-2E22-443F-B1F5-1F4A43CB679E} = {DDB4EF12-CC4E-5E88-E6FC-71A802F4DE97}
+		{E18BCE95-FE4B-4CEE-B088-7D1DA88CFF3C} = {DDB4EF12-CC4E-5E88-E6FC-71A802F4DE97}
+		{35C26003-8D9A-4396-E495-3C0E399874D6} = {DDB4EF12-CC4E-5E88-E6FC-71A802F4DE97}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {92C25308-2EC6-4DF5-9539-11DB03660BB0}
